@@ -11,7 +11,7 @@
             <!-- Fetch some planetary data -->
         </div> 
         <div id="launchForm">
-            <form>
+            <form onsubmit="return false;">
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
                     <label>Pilot Name <input type="text" name="pilotName" id="pilotName"/></label>
                 </div>
@@ -19,12 +19,12 @@
                     <label>Co-pilot Name <input type="text" name="copilotName"/></label>
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Fuel Level (gal) <input type="text" name="fuelLevel"/></label> 
+                    <label>Fuel Level (lbs) <input type="number" name="fuelLevel"/></label> 
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Cargo Weight (lbs) <input type="text" name="cargoWeight"/></label>
+                    <label>Cargo Weight (tonage) <input type="number" name="cargoWeight"/></label>
                 </div>
-                <button id="formSubmit">Submit</button>
+                <button id="formSubmit" >Submit</button>
             </form>
         </div>
         <div id="launchStatusCheck">
@@ -33,8 +33,8 @@
                 <ol>
                     <li id="pilotStatus">Pilot Ready</li>
                     <li id="copilotStatus">Co-pilot Ready</li>
-                    <li id="fuelStatus">Fuel level high enough for launch</li>
-                    <li id="cargoStatus">Cargo weight low enough for launch</li>
+                    <li id="fuelStatus">Fuel level within optimal limits for launch!</li>
+                    <li id="cargoStatus">Cargo tonage within optimal limits for launch!</li>
                 </ol>
             </div>
         </div>    
