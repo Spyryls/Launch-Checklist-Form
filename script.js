@@ -31,7 +31,9 @@ window.onload = (event) => {
       let faultyItems = document.getElementById("faultyItems");
       let launchStatus = document.getElementById("launchStatus");
 
-      let allFieldsValid = () => pilotField.value !== "" && isNaN(pilotField.value) && copilotField.value !== "" && isNaN(copilotField.value) && fuelField.value !== "" && !isNaN(fuelField.value) && cargoField.value !== "" && !isNaN(cargoField.value);
+      let allFieldsValid = () => pilotField.value !== "" && isNaN(pilotField.value) && copilotField.value !== "" 
+         && isNaN(copilotField.value) && fuelField.value !== "" 
+         && !isNaN(fuelField.value) && cargoField.value !== "" && !isNaN(cargoField.value);
 
       if (allFieldsValid()) {
          pilotStatus.innerHTML = `${pilotField.value} is ready for launch!`;
@@ -44,11 +46,15 @@ window.onload = (event) => {
 
       if (pilotField.value === "" || !isNaN(pilotField.value)) {
          alert("Proper pilot designation required");
+         pilotStatus.innerHTML = `Pilot is not aboard!`;
+         pilotStatus.style.color = "red";
          event.preventDefault();
       };
 
       if (copilotField.value === "" || !isNaN(copilotField.value)) {
          alert("Proper co-pilot designation required");
+         copilotStatus.innerHTML = `Co-pilot is not aboard!`;
+         copilotStatus.style.color = "red";
          event.preventDefault();
       };
 
