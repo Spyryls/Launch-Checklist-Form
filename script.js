@@ -1,17 +1,17 @@
 window.onload = (event) => {
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
       response.json().then(function (json) {
-         let missionTarget = document.getElementById("missionTarget");
-         missionTarget.innerHTML = `
-          <h2>Current Mission Destination: ${json[0].name}</h2>
+         let mark = Math.floor(Math.random() * json.length);
+         document.getElementById("missionTarget").innerHTML = `
+          <h2>Current Mission Destination: ${json[mark].name}</h2>
           <ol>
-             <li>Name: ${json[0].name}</li>
-             <li>Diameter: ${json[0].diameter}</li>
-             <li>Star: ${json[0].star}</li>
-             <li>Distance from Earth: ${json[0].distance}</li>
-             <li>Number of Moons: ${json[0].moons}</li>
+             <li>Name: ${json[mark].name}</li>
+             <li>Diameter: ${json[mark].diameter}</li>
+             <li>Star: ${json[mark].star}</li>
+             <li>Distance from Earth: ${json[mark].distance}</li>
+             <li>Number of Moons: ${json[mark].moons}</li>
           </ol>
-          <img src="${json[0].image}">
+          <img src="${json[mark].image}">
          `;
       });
       console.log("Is there anybody out there?");
@@ -75,5 +75,5 @@ window.onload = (event) => {
          launchStatus.style.color = "red";
          event.preventDefault();
       };
-   });
+   }); event.preventDefault();
 }
