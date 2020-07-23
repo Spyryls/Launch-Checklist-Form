@@ -21,7 +21,7 @@ window.onload = (event) => {
    let submissionForm = document.querySelector("form");
 
    submissionForm.addEventListener("submit", function () {
-
+      event.preventDefault();
 
       let pilotField = document.querySelector("input[name=pilotName]");
       let copilotField = document.querySelector("input[name=copilotName]");
@@ -31,9 +31,11 @@ window.onload = (event) => {
       let faultyItems = document.getElementById("faultyItems");
       let launchStatus = document.getElementById("launchStatus");
 
-      let allFieldsValid = () => pilotField.value !== "" && isNaN(pilotField.value) && copilotField.value !== "" 
-         && isNaN(copilotField.value) && fuelField.value !== "" 
-         && !isNaN(fuelField.value) && cargoField.value !== "" && !isNaN(cargoField.value);
+      let allFieldsValid = () => 
+      pilotField.value !== "" && isNaN(pilotField.value) && 
+      copilotField.value !== "" && isNaN(copilotField.value) && 
+      fuelField.value !== "" && !isNaN(fuelField.value) && 
+      cargoField.value !== "" && !isNaN(cargoField.value);
 
       if (allFieldsValid()) {
          pilotStatus.innerHTML = `${pilotField.value} is ready for launch!`;
@@ -42,7 +44,6 @@ window.onload = (event) => {
          launchStatus.style.color = "green";
          launchStatus.innerHTML = `MISSION A-GO FOR LAUNCH!`;
       };
-
 
       if (pilotField.value === "" || !isNaN(pilotField.value)) {
          alert("Proper pilot designation required");
@@ -81,5 +82,5 @@ window.onload = (event) => {
          launchStatus.style.color = "red";
          event.preventDefault();
       };
-   }); event.preventDefault();
+   }); 
 }
